@@ -161,3 +161,10 @@ Processing by StaticPagesController#index as HTML
 Completed 200 OK in 422ms (Views: 418.0ms | ActiveRecord: 0.0ms)
 
 
+Started GET "/" for ::1 at 2017-08-18 13:30:57 -0400
+Processing by StaticPagesController#index as HTML
+  Rendering static_pages/index.html.erb within layouts/application
+  Rendered static_pages/index.html.erb within layouts/application (3.2ms)
+Completed 200 OK in 657ms (Views: 654.2ms | ActiveRecord: 0.0ms)
+
+
