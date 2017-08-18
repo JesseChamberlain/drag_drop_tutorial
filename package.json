@@ -1,7 +1,7 @@
 {
-  "name": "bare-rails-react",
+  "name": "rails-react-drag-drop",
   "version": "1.0.0",
-  "description": "Bare Rails and React app",
+  "description": "Rails and React drag and drop Tutorial",
   "main": "webpack.config.js",
   "engines": {
     "node": "7.9.0"
@@ -12,7 +12,7 @@
     "start": "yarn run webpack -- --watch",
     "webpack": "node_modules/.bin/webpack --config ./react/webpack.config.js"
   },
-  "author": "Ivan Lasorsa",
+  "author": "Jesse Chamberlain",
   "license": "MIT",
   "dependencies": {
     "babel-core": "^6.5.1",

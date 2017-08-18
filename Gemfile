@@ -6,6 +6,7 @@ gem 'sass-rails', '~> 5.0'
 gem 'uglifier', '>= 1.3.0'
 gem 'jquery-rails'
 gem 'listen'
+
 group :development, :test do
   gem 'capybara'
   gem 'factory_girl_rails'
