@@ -266,3 +266,50 @@ ORDER BY c.conname
   [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "blocks" ("name", "color", "location", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "A4"], ["color", "red"], ["location", 9], ["created_at", 2017-08-18 19:11:08 UTC], ["updated_at", 2017-08-18 19:11:08 UTC]]
   [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
   [1m[36mBlock Load (1.8ms)[0m  [1m[34mSELECT "blocks".* FROM "blocks"[0m
+Started GET "/songs" for ::1 at 2017-08-18 15:45:48 -0400
+  [1m[36mActiveRecord::SchemaMigration Load (2.3ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  
+ActionController::RoutingError (No route matches [GET] "/songs"):
+  
+actionpack (5.0.0.1) lib/action_dispatch/middleware/debug_exceptions.rb:53:in `call'
+actionpack (5.0.0.1) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.0.0.1) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.0.0.1) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.0.0.1) lib/active_support/tagged_logging.rb:70:in `block in tagged'
+activesupport (5.0.0.1) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.0.0.1) lib/active_support/tagged_logging.rb:70:in `tagged'
+railties (5.0.0.1) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.0) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.0.0.1) lib/action_dispatch/middleware/request_id.rb:24:in `call'
+rack (2.0.3) lib/rack/method_override.rb:22:in `call'
+rack (2.0.3) lib/rack/runtime.rb:22:in `call'
+activesupport (5.0.0.1) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+actionpack (5.0.0.1) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.0.0.1) lib/action_dispatch/middleware/static.rb:136:in `call'
+rack (2.0.3) lib/rack/sendfile.rb:111:in `call'
+railties (5.0.0.1) lib/rails/engine.rb:522:in `call'
+rack (2.0.3) lib/rack/handler/webrick.rb:86:in `service'
+/Users/jessechamberlain/.rubies/ruby-2.3.3/lib/ruby/2.3.0/webrick/httpserver.rb:140:in `service'
+/Users/jessechamberlain/.rubies/ruby-2.3.3/lib/ruby/2.3.0/webrick/httpserver.rb:96:in `run'
+/Users/jessechamberlain/.rubies/ruby-2.3.3/lib/ruby/2.3.0/webrick/server.rb:296:in `block in start_thread'
+  Rendering /Users/jessechamberlain/.gem/ruby/2.3.3/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout
+  Rendering /Users/jessechamberlain/.gem/ruby/2.3.3/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /Users/jessechamberlain/.gem/ruby/2.3.3/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.5ms)
+  Rendered collection of /Users/jessechamberlain/.gem/ruby/2.3.3/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/routes/_route.html.erb [5 times] (12.5ms)
+  Rendered /Users/jessechamberlain/.gem/ruby/2.3.3/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/routes/_table.html.erb (15.3ms)
+  Rendering /Users/jessechamberlain/.gem/ruby/2.3.3/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /Users/jessechamberlain/.gem/ruby/2.3.3/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (11.4ms)
+  Rendered /Users/jessechamberlain/.gem/ruby/2.3.3/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (154.0ms)
+Started GET "/api/v1/blocks" for ::1 at 2017-08-18 15:45:53 -0400
+Processing by Api::V1::BlocksController#index as HTML
+  [1m[36mBlock Load (2.0ms)[0m  [1m[34mSELECT "blocks".* FROM "blocks"[0m
+Completed 200 OK in 31ms (Views: 11.6ms | ActiveRecord: 13.3ms)
+
+
+Started GET "/api/v1/blocks" for ::1 at 2017-08-18 15:59:28 -0400
+  [1m[36mActiveRecord::SchemaMigration Load (1.6ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by Api::V1::BlocksController#index as HTML
+  [1m[36mBlock Load (1.7ms)[0m  [1m[34mSELECT "blocks".* FROM "blocks"[0m
+Completed 200 OK in 31ms (Views: 10.8ms | ActiveRecord: 15.9ms)
+
+
