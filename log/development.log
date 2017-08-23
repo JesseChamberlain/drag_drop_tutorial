@@ -1024,3 +1024,54 @@ Processing by Api::V1::BlocksController#index as */*
 Completed 200 OK in 16ms (Views: 13.0ms | ActiveRecord: 1.7ms)
 
 
+DEPRECATION WARNING: ActiveSupport.halt_callback_chains_on_return_false= is deprecated and will be removed in Rails 5.2. (called from <top (required)> at /Users/jessechamberlain/challenges/drag_drop_tutorial/config/initializers/new_framework_defaults.rb:21)
+Started GET "/" for ::1 at 2017-08-23 15:13:38 -0400
+  [1m[35m (2.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by StaticPagesController#index as HTML
+  Rendering static_pages/index.html.erb within layouts/application
+  Rendered static_pages/index.html.erb within layouts/application (1.6ms)
+Completed 200 OK in 2056ms (Views: 2053.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2017-08-23 15:14:36 -0400
+Processing by StaticPagesController#index as HTML
+  Rendering static_pages/index.html.erb within layouts/application
+  Rendered static_pages/index.html.erb within layouts/application (3.0ms)
+Completed 200 OK in 1120ms (Views: 1110.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/api/v1/blocks" for ::1 at 2017-08-23 15:14:38 -0400
+Processing by Api::V1::BlocksController#index as */*
+  [1m[36mBlock Load (9.0ms)[0m  [1m[34mSELECT "blocks".* FROM "blocks" ORDER BY "blocks"."location" ASC[0m
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (3.25ms)
+Completed 200 OK in 98ms (Views: 61.6ms | ActiveRecord: 29.2ms)
+
+
+Started GET "/" for ::1 at 2017-08-23 15:15:09 -0400
+Processing by StaticPagesController#index as HTML
+  Rendering static_pages/index.html.erb within layouts/application
+  Rendered static_pages/index.html.erb within layouts/application (0.7ms)
+Completed 200 OK in 802ms (Views: 799.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/api/v1/blocks" for ::1 at 2017-08-23 15:15:11 -0400
+Processing by Api::V1::BlocksController#index as */*
+  [1m[36mBlock Load (0.9ms)[0m  [1m[34mSELECT "blocks".* FROM "blocks" ORDER BY "blocks"."location" ASC[0m
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (1.78ms)
+Completed 200 OK in 6ms (Views: 5.1ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/" for ::1 at 2017-08-23 15:16:21 -0400
+Processing by StaticPagesController#index as HTML
+  Rendering static_pages/index.html.erb within layouts/application
+  Rendered static_pages/index.html.erb within layouts/application (3.8ms)
+Completed 200 OK in 101ms (Views: 95.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/api/v1/blocks" for ::1 at 2017-08-23 15:16:22 -0400
+Processing by Api::V1::BlocksController#index as */*
+  [1m[36mBlock Load (1.7ms)[0m  [1m[34mSELECT "blocks".* FROM "blocks" ORDER BY "blocks"."location" ASC[0m
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (3.38ms)
+Completed 200 OK in 24ms (Views: 19.9ms | ActiveRecord: 1.7ms)
+
+
