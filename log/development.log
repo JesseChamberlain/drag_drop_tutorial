@@ -927,3 +927,12 @@ Checked in these paths:
 
 app/assets/stylesheets/application.scss:4
 app/views/layouts/application.html.erb:7:in `_app_views_layouts_application_html_erb___4152087035800441451_70259443617880'
+DEPRECATION WARNING: ActiveSupport.halt_callback_chains_on_return_false= is deprecated and will be removed in Rails 5.2. (called from <top (required)> at /Users/jessechamberlain/challenges/drag_drop_tutorial/config/initializers/new_framework_defaults.rb:21)
+Started GET "/" for ::1 at 2017-08-23 13:52:37 -0400
+  [1m[35m (1.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by StaticPagesController#index as HTML
+  Rendering static_pages/index.html.erb within layouts/application
+  Rendered static_pages/index.html.erb within layouts/application (1.6ms)
+Completed 200 OK in 14278ms (Views: 14275.7ms | ActiveRecord: 0.0ms)
+
+
