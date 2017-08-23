@@ -1,3 +1,41 @@
 // Place all the styles related to the blocks controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+$jet    : #222222;
+$red    : #FF6200;
+$green  : #B5F700;
+$pink   : #DB0099;
+
+#block-name {
+  font-size: 8.55em;
+  font-weight: bold;
+}
+
+div .block-tile {
+  padding: 5px;
+}
+
+div .block-tile-red {
+  border: 6px solid $red;
+  background: $jet;
+  color: $red;
+  text-align: center;
+  padding: 15px;
+}
+
+div .block-tile-green {
+  border: 6px solid $green;
+  background: $jet;
+  color: $green;
+  text-align: center;
+  padding: 15px;
+}
+
+div .block-tile-pink {
+  border: 6px solid $pink;
+  background: $jet;
+  color: $pink;
+  text-align: center;
+  padding: 15px;
+}

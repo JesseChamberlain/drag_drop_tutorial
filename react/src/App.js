@@ -5,7 +5,7 @@ import BlocksIndexContainer from './containers/BlocksIndexContainer';
 const App = () => {
   return (
       <div>
-        {BlocksIndexContainer}
+        <BlocksIndexContainer />
       </div>
   );
 }

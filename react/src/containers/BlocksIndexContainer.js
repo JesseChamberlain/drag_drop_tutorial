@@ -1,54 +1,6 @@
 import React, { Component } from 'react';
 import BlockTile from '../components/BlockTile';
 
-BLOCKS = [
-  {
-    name: "I",
-    color: "green",
-    location: "1"
-  },
-  {
-    name: "A1",
-    color: "red",
-    location: "2"
-  },
-  {
-    name: "A2",
-    color: "red",
-    location: "3"
-  },
-  {
-    name: "A3",
-    color: "red",
-    location: "4"
-  },
-  {
-    name: "B1",
-    color: "pink",
-    location: "5"
-  },
-  {
-    name: "B2",
-    color: "pink",
-    location: "6"
-  },
-  {
-    name: "BB",
-    color: "pink",
-    location: "7"
-  },
-  {
-    name: "C",
-    color: "green",
-    location: "8"
-  },
-  {
-    name: "A4",
-    color: "red",
-    location: "9"
-  }
-]
-
 class BlocksIndexContainer extends Component {
   constructor(props) {
     super(props);
@@ -58,8 +10,54 @@ class BlocksIndexContainer extends Component {
   }
 
   componentDidMount() {
-    this.setState({ blocks: BLOCKS })
-    
+    this.setState({ blocks: [
+      {
+        name: "I",
+        color: "green",
+        id: "1"
+      },
+      {
+        name: "A1",
+        color: "red",
+        id: "2"
+      },
+      {
+        name: "A2",
+        color: "red",
+        id: "3"
+      },
+      {
+        name: "A3",
+        color: "red",
+        id: "4"
+      },
+      {
+        name: "B1",
+        color: "pink",
+        id: "5"
+      },
+      {
+        name: "B2",
+        color: "pink",
+        id: "6"
+      },
+      {
+        name: "BB",
+        color: "pink",
+        id: "7"
+      },
+      {
+        name: "C",
+        color: "green",
+        id: "8"
+      },
+      {
+        name: "A4",
+        color: "red",
+        id: "9"
+      }
+    ] })
+
     // fetch(`/api/v1/blocks`)
     // .then(response => {
     //   if (response.ok) {

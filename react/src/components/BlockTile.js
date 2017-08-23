@@ -4,7 +4,7 @@ const BlockTile = (props) => {
   let block = props.block
   return (
     <div className={`block-tile-${block.color}`}>
-      <p id="name">{block.name} x{block.repetitions}</p>
+      <p id="name">{block.name}</p>
     </div>
   );
 }
