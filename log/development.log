@@ -1,7 +1,7 @@
 Started GET "/songs" for ::1 at 2017-08-18 13:10:01 -0400
-  
+
 ActionController::RoutingError (No route matches [GET] "/songs"):
-  
+
 actionpack (5.0.0.1) lib/action_dispatch/middleware/debug_exceptions.rb:53:in `call'
 actionpack (5.0.0.1) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
 railties (5.0.0.1) lib/rails/rack/logger.rb:36:in `call_app'
@@ -38,9 +38,9 @@ Processing by StaticPagesController#index as HTML
 Completed 200 OK in 1307ms (Views: 1305.2ms | ActiveRecord: 0.0ms)
 
 
-  
+
 ArgumentError (key must be 32 bytes):
-  
+
 activesupport (5.0.0.1) lib/active_support/message_encryptor.rb:72:in `key='
 activesupport (5.0.0.1) lib/active_support/message_encryptor.rb:72:in `_encrypt'
 activesupport (5.0.0.1) lib/active_support/message_encryptor.rb:58:in `encrypt_and_sign'
@@ -95,9 +95,9 @@ Processing by StaticPagesController#index as HTML
 Completed 200 OK in 42ms (Views: 39.9ms | ActiveRecord: 0.0ms)
 
 
-  
+
 ArgumentError (key must be 32 bytes):
-  
+
 activesupport (5.0.0.1) lib/active_support/message_encryptor.rb:72:in `key='
 activesupport (5.0.0.1) lib/active_support/message_encryptor.rb:72:in `_encrypt'
 activesupport (5.0.0.1) lib/active_support/message_encryptor.rb:58:in `encrypt_and_sign'
@@ -268,9 +268,9 @@ ORDER BY c.conname
   [1m[36mBlock Load (1.8ms)[0m  [1m[34mSELECT "blocks".* FROM "blocks"[0m
 Started GET "/questions" for ::1 at 2017-08-23 11:44:55 -0400
   [1m[36mActiveRecord::SchemaMigration Load (2.5ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
-  
+
 ActionController::RoutingError (No route matches [GET] "/questions"):
-  
+
 actionpack (5.0.0.1) lib/action_dispatch/middleware/debug_exceptions.rb:53:in `call'
 actionpack (5.0.0.1) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
 railties (5.0.0.1) lib/rails/rack/logger.rb:36:in `call_app'
@@ -307,9 +307,9 @@ Processing by StaticPagesController#index as HTML
 Completed 200 OK in 1193ms (Views: 1191.0ms | ActiveRecord: 0.0ms)
 
 
-  
+
 ArgumentError (key must be 32 bytes):
-  
+
 activesupport (5.0.0.1) lib/active_support/message_encryptor.rb:72:in `key='
 activesupport (5.0.0.1) lib/active_support/message_encryptor.rb:72:in `_encrypt'
 activesupport (5.0.0.1) lib/active_support/message_encryptor.rb:58:in `encrypt_and_sign'
@@ -364,9 +364,9 @@ Processing by StaticPagesController#index as HTML
 Completed 200 OK in 60ms (Views: 57.8ms | ActiveRecord: 0.0ms)
 
 
-  
+
 ArgumentError (key must be 32 bytes):
-  
+
 activesupport (5.0.0.1) lib/active_support/message_encryptor.rb:72:in `key='
 activesupport (5.0.0.1) lib/active_support/message_encryptor.rb:72:in `_encrypt'
 activesupport (5.0.0.1) lib/active_support/message_encryptor.rb:58:in `encrypt_and_sign'
@@ -421,9 +421,9 @@ Processing by StaticPagesController#index as HTML
 Completed 200 OK in 77ms (Views: 73.5ms | ActiveRecord: 0.0ms)
 
 
-  
+
 ArgumentError (key must be 32 bytes):
-  
+
 activesupport (5.0.0.1) lib/active_support/message_encryptor.rb:72:in `key='
 activesupport (5.0.0.1) lib/active_support/message_encryptor.rb:72:in `_encrypt'
 activesupport (5.0.0.1) lib/active_support/message_encryptor.rb:58:in `encrypt_and_sign'
@@ -479,9 +479,9 @@ Processing by StaticPagesController#index as HTML
 Completed 200 OK in 509ms (Views: 506.0ms | ActiveRecord: 0.0ms)
 
 
-  
+
 ArgumentError (key must be 32 bytes):
-  
+
 activesupport (5.0.0.1) lib/active_support/message_encryptor.rb:72:in `key='
 activesupport (5.0.0.1) lib/active_support/message_encryptor.rb:72:in `_encrypt'
 activesupport (5.0.0.1) lib/active_support/message_encryptor.rb:58:in `encrypt_and_sign'
@@ -537,9 +537,9 @@ Processing by StaticPagesController#index as HTML
 Completed 200 OK in 371ms (Views: 368.7ms | ActiveRecord: 0.0ms)
 
 
-  
+
 ArgumentError (key must be 32 bytes):
-  
+
 activesupport (5.0.0.1) lib/active_support/message_encryptor.rb:72:in `key='
 activesupport (5.0.0.1) lib/active_support/message_encryptor.rb:72:in `_encrypt'
 activesupport (5.0.0.1) lib/active_support/message_encryptor.rb:58:in `encrypt_and_sign'
@@ -594,9 +594,9 @@ Processing by StaticPagesController#index as HTML
 Completed 200 OK in 121ms (Views: 107.8ms | ActiveRecord: 0.0ms)
 
 
-  
+
 ArgumentError (key must be 32 bytes):
-  
+
 activesupport (5.0.0.1) lib/active_support/message_encryptor.rb:72:in `key='
 activesupport (5.0.0.1) lib/active_support/message_encryptor.rb:72:in `_encrypt'
 activesupport (5.0.0.1) lib/active_support/message_encryptor.rb:58:in `encrypt_and_sign'
@@ -651,9 +651,9 @@ Processing by StaticPagesController#index as HTML
 Completed 200 OK in 22ms (Views: 20.1ms | ActiveRecord: 0.0ms)
 
 
-  
+
 ArgumentError (key must be 32 bytes):
-  
+
 activesupport (5.0.0.1) lib/active_support/message_encryptor.rb:72:in `key='
 activesupport (5.0.0.1) lib/active_support/message_encryptor.rb:72:in `_encrypt'
 activesupport (5.0.0.1) lib/active_support/message_encryptor.rb:58:in `encrypt_and_sign'
@@ -728,9 +728,9 @@ Processing by StaticPagesController#index as HTML
 Completed 200 OK in 439ms (Views: 437.2ms | ActiveRecord: 0.0ms)
 
 
-  
+
 ArgumentError (key must be 32 bytes):
-  
+
 activesupport (5.0.0.1) lib/active_support/message_encryptor.rb:72:in `key='
 activesupport (5.0.0.1) lib/active_support/message_encryptor.rb:72:in `_encrypt'
 activesupport (5.0.0.1) lib/active_support/message_encryptor.rb:58:in `encrypt_and_sign'
@@ -872,16 +872,16 @@ Processing by StaticPagesController#index as HTML
 Completed 500 Internal Server Error in 75ms (ActiveRecord: 0.0ms)
 
 
-  
+
 ActionView::Template::Error (Invalid CSS after "*= require blocks": expected "{", was ""):
     4:     <title>Drag and Drop Tutorial</title>
     5:     <%= csrf_meta_tags %>
-    6: 
+    6:
     7:     <%= stylesheet_link_tag    'application', media: 'all' %>
     8:     <%= javascript_include_tag 'application' %>
     9:   </head>
-   10: 
-  
+   10:
+
 app/assets/stylesheets/application.scss:4
 app/views/layouts/application.html.erb:7:in `_app_views_layouts_application_html_erb__1660591889026891692_70155064020900'
 Started GET "/" for ::1 at 2017-08-23 12:29:25 -0400
@@ -889,5 +889,3 @@ Processing by StaticPagesController#index as HTML
   Rendering static_pages/index.html.erb within layouts/application
   Rendered static_pages/index.html.erb within layouts/application (0.9ms)
 Completed 200 OK in 87ms (Views: 84.5ms | ActiveRecord: 0.0ms)
-
-

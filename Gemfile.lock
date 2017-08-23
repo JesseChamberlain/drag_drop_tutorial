@@ -191,6 +191,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  active_model_serializers
   capybara
   factory_girl_rails
   jquery-rails
