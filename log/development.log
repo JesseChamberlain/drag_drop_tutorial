@@ -889,3 +889,86 @@ Processing by StaticPagesController#index as HTML
   Rendering static_pages/index.html.erb within layouts/application
   Rendered static_pages/index.html.erb within layouts/application (0.9ms)
 Completed 200 OK in 87ms (Views: 84.5ms | ActiveRecord: 0.0ms)
+DEPRECATION WARNING: ActiveSupport.halt_callback_chains_on_return_false= is deprecated and will be removed in Rails 5.2. (called from <top (required)> at /Users/jessechamberlain/challenges/drag_drop_tutorial/config/initializers/new_framework_defaults.rb:21)
+Started GET "/" for ::1 at 2017-08-23 13:15:31 -0400
+  [1m[35m (2.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by StaticPagesController#index as HTML
+  Rendering static_pages/index.html.erb within layouts/application
+  Rendered static_pages/index.html.erb within layouts/application (1.7ms)
+Completed 200 OK in 1542ms (Views: 1539.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2017-08-23 13:16:21 -0400
+Processing by StaticPagesController#index as HTML
+  Rendering static_pages/index.html.erb within layouts/application
+  Rendered static_pages/index.html.erb within layouts/application (7.1ms)
+Completed 200 OK in 935ms (Views: 928.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2017-08-23 13:17:08 -0400
+Processing by StaticPagesController#index as HTML
+  Rendering static_pages/index.html.erb within layouts/application
+  Rendered static_pages/index.html.erb within layouts/application (4.3ms)
+Completed 200 OK in 1015ms (Views: 1000.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2017-08-23 13:17:39 -0400
+Processing by StaticPagesController#index as HTML
+  Rendering static_pages/index.html.erb within layouts/application
+  Rendered static_pages/index.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 673ms (Views: 670.3ms | ActiveRecord: 0.0ms)
+
+
+DEPRECATION WARNING: ActiveSupport.halt_callback_chains_on_return_false= is deprecated and will be removed in Rails 5.2. (called from <top (required)> at /Users/jessechamberlain/challenges/drag_drop_tutorial/config/initializers/new_framework_defaults.rb:21)
+Started GET "/" for ::1 at 2017-08-23 13:20:57 -0400
+  [1m[35m (3.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by StaticPagesController#index as HTML
+  Rendering static_pages/index.html.erb within layouts/application
+  Rendered static_pages/index.html.erb within layouts/application (1.9ms)
+Completed 200 OK in 1793ms (Views: 1790.0ms | ActiveRecord: 0.0ms)
+
+
+DEPRECATION WARNING: ActiveSupport.halt_callback_chains_on_return_false= is deprecated and will be removed in Rails 5.2. (called from <top (required)> at /Users/jessechamberlain/challenges/drag_drop_tutorial/config/initializers/new_framework_defaults.rb:21)
+Started GET "/" for ::1 at 2017-08-23 13:25:21 -0400
+  [1m[35m (1.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by StaticPagesController#index as HTML
+  Rendering static_pages/index.html.erb within layouts/application
+  Rendered static_pages/index.html.erb within layouts/application (1.7ms)
+Completed 200 OK in 809ms (Views: 806.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2017-08-23 13:27:45 -0400
+Processing by StaticPagesController#index as HTML
+  Rendering static_pages/index.html.erb within layouts/application
+  Rendered static_pages/index.html.erb within layouts/application (1.5ms)
+Completed 200 OK in 8298ms (Views: 8288.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2017-08-23 13:28:54 -0400
+Processing by StaticPagesController#index as HTML
+  Rendering static_pages/index.html.erb within layouts/application
+  Rendered static_pages/index.html.erb within layouts/application (9.8ms)
+Completed 200 OK in 1341ms (Views: 1333.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2017-08-23 13:30:38 -0400
+Processing by StaticPagesController#index as HTML
+  Rendering static_pages/index.html.erb within layouts/application
+  Rendered static_pages/index.html.erb within layouts/application (3.0ms)
+Completed 200 OK in 1006ms (Views: 999.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2017-08-23 13:31:03 -0400
+Processing by StaticPagesController#index as HTML
+  Rendering static_pages/index.html.erb within layouts/application
+  Rendered static_pages/index.html.erb within layouts/application (0.4ms)
+Completed 200 OK in 127ms (Views: 124.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2017-08-23 13:32:21 -0400
+Processing by StaticPagesController#index as HTML
+  Rendering static_pages/index.html.erb within layouts/application
+  Rendered static_pages/index.html.erb within layouts/application (2.3ms)
+Completed 200 OK in 1222ms (Views: 1215.8ms | ActiveRecord: 0.0ms)
+
+

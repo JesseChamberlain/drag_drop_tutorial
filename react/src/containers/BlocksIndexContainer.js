@@ -90,7 +90,7 @@ class BlocksIndexContainer extends Component {
 
     return(
       <div className="row">
-        <div className="small-8 small-centered columns">
+        <div className="medium-8 columns">
           {blocks}
         </div>
       </div>
