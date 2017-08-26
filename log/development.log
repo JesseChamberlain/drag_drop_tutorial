@@ -1404,3 +1404,37 @@ Processing by Api::V1::ListsController#show as HTML
 Completed 200 OK in 9ms (Views: 5.0ms | ActiveRecord: 1.3ms)
 
 
+DEPRECATION WARNING: ActiveSupport.halt_callback_chains_on_return_false= is deprecated and will be removed in Rails 5.2. (called from <top (required)> at /Users/jessechamberlain/challenges/drag_drop_tutorial/config/initializers/new_framework_defaults.rb:21)
+Started GET "/" for ::1 at 2017-08-26 10:29:50 -0400
+  [1m[35m (1.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by StaticPagesController#index as HTML
+  Rendering static_pages/index.html.erb within layouts/application
+  Rendered static_pages/index.html.erb within layouts/application (1.8ms)
+Completed 200 OK in 1636ms (Views: 1633.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/api/v1/lists/1" for ::1 at 2017-08-26 10:29:53 -0400
+Processing by Api::V1::ListsController#show as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mList Load (1.2ms)[0m  [1m[34mSELECT  "lists".* FROM "lists" WHERE "lists"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+[active_model_serializers]   [1m[36mBlock Load (3.0ms)[0m  [1m[34mSELECT "blocks".* FROM "blocks" WHERE "blocks"."list_id" = $1 ORDER BY "blocks"."location" ASC[0m  [["list_id", 1]]
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (54.03ms)
+Completed 200 OK in 158ms (Views: 58.3ms | ActiveRecord: 27.8ms)
+
+
+Started GET "/" for ::1 at 2017-08-26 10:29:56 -0400
+Processing by StaticPagesController#index as HTML
+  Rendering static_pages/index.html.erb within layouts/application
+  Rendered static_pages/index.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 57ms (Views: 53.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/api/v1/lists/1" for ::1 at 2017-08-26 10:29:57 -0400
+Processing by Api::V1::ListsController#show as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mList Load (0.6ms)[0m  [1m[34mSELECT  "lists".* FROM "lists" WHERE "lists"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+[active_model_serializers]   [1m[36mBlock Load (1.1ms)[0m  [1m[34mSELECT "blocks".* FROM "blocks" WHERE "blocks"."list_id" = $1 ORDER BY "blocks"."location" ASC[0m  [["list_id", 1]]
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (8.97ms)
+Completed 200 OK in 14ms (Views: 8.8ms | ActiveRecord: 1.7ms)
+
+
