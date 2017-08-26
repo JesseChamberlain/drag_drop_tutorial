@@ -6,4 +6,5 @@ class Block < ApplicationRecord
     greater_than_or_equal_to: 1,
     less_than_or_equal_to: 250
     
+  belongs_to :list
 end
