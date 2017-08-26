@@ -2619,3 +2619,193 @@ No template found for Api::V1::ListsController#update, rendering head :no_conten
 Completed 204 No Content in 2838ms (ActiveRecord: 0.0ms)
 
 
+DEPRECATION WARNING: ActiveSupport.halt_callback_chains_on_return_false= is deprecated and will be removed in Rails 5.2. (called from <top (required)> at /Users/jessechamberlain/challenges/drag_drop_tutorial/config/initializers/new_framework_defaults.rb:21)
+Started GET "/" for ::1 at 2017-08-26 13:19:50 -0400
+  [1m[35m (1.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by ListsController#show as HTML
+  Rendering lists/show.html.erb within layouts/application
+  Rendered lists/show.html.erb within layouts/application (1.7ms)
+Completed 200 OK in 626ms (Views: 623.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/api/v1/lists/1" for ::1 at 2017-08-26 13:19:52 -0400
+Processing by Api::V1::ListsController#show as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mList Load (2.7ms)[0m  [1m[34mSELECT  "lists".* FROM "lists" WHERE "lists"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+[active_model_serializers]   [1m[36mBlock Load (1.0ms)[0m  [1m[34mSELECT "blocks".* FROM "blocks" WHERE "blocks"."list_id" = $1 ORDER BY "blocks"."location" ASC[0m  [["list_id", 1]]
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (32.63ms)
+Completed 200 OK in 158ms (Views: 38.0ms | ActiveRecord: 41.4ms)
+
+
+Started GET "/" for ::1 at 2017-08-26 13:19:54 -0400
+Processing by ListsController#show as HTML
+  Rendering lists/show.html.erb within layouts/application
+  Rendered lists/show.html.erb within layouts/application (0.4ms)
+Completed 200 OK in 67ms (Views: 62.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/api/v1/lists/1" for ::1 at 2017-08-26 13:19:54 -0400
+Processing by Api::V1::ListsController#show as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mList Load (0.6ms)[0m  [1m[34mSELECT  "lists".* FROM "lists" WHERE "lists"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+[active_model_serializers]   [1m[36mBlock Load (1.1ms)[0m  [1m[34mSELECT "blocks".* FROM "blocks" WHERE "blocks"."list_id" = $1 ORDER BY "blocks"."location" ASC[0m  [["list_id", 1]]
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (11.43ms)
+Completed 200 OK in 17ms (Views: 11.0ms | ActiveRecord: 1.8ms)
+
+
+Started PATCH "/api/v1/lists/1" for ::1 at 2017-08-26 13:19:55 -0400
+Processing by Api::V1::ListsController#update as */*
+  Parameters: {"id"=>"1"}
+Started GET "/" for ::1 at 2017-08-26 13:19:57 -0400
+Processing by ListsController#show as HTML
+  Rendering lists/show.html.erb within layouts/application
+  Rendered lists/show.html.erb within layouts/application (0.7ms)
+Completed 200 OK in 49ms (Views: 47.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/api/v1/lists/1" for ::1 at 2017-08-26 13:19:58 -0400
+Processing by Api::V1::ListsController#show as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mList Load (1.0ms)[0m  [1m[34mSELECT  "lists".* FROM "lists" WHERE "lists"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+[active_model_serializers]   [1m[36mBlock Load (3.2ms)[0m  [1m[34mSELECT "blocks".* FROM "blocks" WHERE "blocks"."list_id" = $1 ORDER BY "blocks"."location" ASC[0m  [["list_id", 1]]
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (14.95ms)
+Completed 200 OK in 24ms (Views: 12.7ms | ActiveRecord: 4.6ms)
+
+
+  [1m[36mList Load (0.9ms)[0m  [1m[34mSELECT  "lists".* FROM "lists" WHERE "lists"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mBlock Load (0.5ms)[0m  [1m[34mSELECT "blocks".* FROM "blocks" WHERE "blocks"."list_id" = $1[0m  [["list_id", 1]]
+  [1m[35m (7.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (8.2ms)[0m  [1m[33mUPDATE "blocks" SET "location" = $1, "updated_at" = $2 WHERE "blocks"."id" = $3[0m  [["location", 2], ["updated_at", "2017-08-26 17:20:37.834650"], ["id", 1]]
+  [1m[35m (12.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (21.7ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (8.8ms)[0m  [1m[33mUPDATE "blocks" SET "location" = $1, "updated_at" = $2 WHERE "blocks"."id" = $3[0m  [["location", 1], ["updated_at", "2017-08-26 17:20:37.899090"], ["id", 2]]
+  [1m[35m (4.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mList Load (0.5ms)[0m  [1m[34mSELECT  "lists".* FROM "lists" WHERE "lists"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+[active_model_serializers]   [1m[36mBlock Load (35.3ms)[0m  [1m[34mSELECT "blocks".* FROM "blocks" WHERE "blocks"."list_id" = $1 ORDER BY "blocks"."location" ASC[0m  [["list_id", 1]]
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (46.04ms)
+Completed 200 OK in 42124ms (Views: 11.6ms | ActiveRecord: 99.7ms)
+
+
+DEPRECATION WARNING: ActiveSupport.halt_callback_chains_on_return_false= is deprecated and will be removed in Rails 5.2. (called from <top (required)> at /Users/jessechamberlain/challenges/drag_drop_tutorial/config/initializers/new_framework_defaults.rb:21)
+Started GET "/" for ::1 at 2017-08-26 13:20:55 -0400
+  [1m[35m (1.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by ListsController#show as HTML
+  Rendering lists/show.html.erb within layouts/application
+  Rendered lists/show.html.erb within layouts/application (1.9ms)
+Completed 200 OK in 570ms (Views: 567.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/api/v1/lists/1" for ::1 at 2017-08-26 13:20:56 -0400
+Processing by Api::V1::ListsController#show as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mList Load (1.0ms)[0m  [1m[34mSELECT  "lists".* FROM "lists" WHERE "lists"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+[active_model_serializers]   [1m[36mBlock Load (1.1ms)[0m  [1m[34mSELECT "blocks".* FROM "blocks" WHERE "blocks"."list_id" = $1 ORDER BY "blocks"."location" ASC[0m  [["list_id", 1]]
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (37.59ms)
+Completed 200 OK in 159ms (Views: 47.7ms | ActiveRecord: 22.6ms)
+
+
+Started PATCH "/api/v1/lists/1" for ::1 at 2017-08-26 13:20:58 -0400
+Processing by Api::V1::ListsController#update as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mList Load (0.5ms)[0m  [1m[34mSELECT  "lists".* FROM "lists" WHERE "lists"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mBlock Load (0.5ms)[0m  [1m[34mSELECT "blocks".* FROM "blocks" WHERE "blocks"."list_id" = $1[0m  [["list_id", 1]]
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.8ms)[0m  [1m[33mUPDATE "blocks" SET "location" = $1, "updated_at" = $2 WHERE "blocks"."id" = $3[0m  [["location", 1], ["updated_at", "2017-08-26 17:20:58.656985"], ["id", 1]]
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.7ms)[0m  [1m[33mUPDATE "blocks" SET "location" = $1, "updated_at" = $2 WHERE "blocks"."id" = $3[0m  [["location", 2], ["updated_at", "2017-08-26 17:20:58.663406"], ["id", 2]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mList Load (0.4ms)[0m  [1m[34mSELECT  "lists".* FROM "lists" WHERE "lists"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+[active_model_serializers]   [1m[36mBlock Load (0.7ms)[0m  [1m[34mSELECT "blocks".* FROM "blocks" WHERE "blocks"."list_id" = $1 ORDER BY "blocks"."location" ASC[0m  [["list_id", 1]]
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (6.45ms)
+Completed 200 OK in 28ms (Views: 6.3ms | ActiveRecord: 5.3ms)
+
+
+Started GET "/" for ::1 at 2017-08-26 13:21:00 -0400
+Processing by ListsController#show as HTML
+  Rendering lists/show.html.erb within layouts/application
+  Rendered lists/show.html.erb within layouts/application (0.4ms)
+Completed 200 OK in 52ms (Views: 48.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/api/v1/lists/1" for ::1 at 2017-08-26 13:21:00 -0400
+Processing by Api::V1::ListsController#show as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mList Load (0.8ms)[0m  [1m[34mSELECT  "lists".* FROM "lists" WHERE "lists"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+[active_model_serializers]   [1m[36mBlock Load (1.4ms)[0m  [1m[34mSELECT "blocks".* FROM "blocks" WHERE "blocks"."list_id" = $1 ORDER BY "blocks"."location" ASC[0m  [["list_id", 1]]
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (9.43ms)
+Completed 200 OK in 15ms (Views: 9.3ms | ActiveRecord: 2.3ms)
+
+
+Started PATCH "/api/v1/lists/1" for ::1 at 2017-08-26 13:21:02 -0400
+Processing by Api::V1::ListsController#update as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mList Load (0.5ms)[0m  [1m[34mSELECT  "lists".* FROM "lists" WHERE "lists"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mBlock Load (0.7ms)[0m  [1m[34mSELECT "blocks".* FROM "blocks" WHERE "blocks"."list_id" = $1[0m  [["list_id", 1]]
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.8ms)[0m  [1m[33mUPDATE "blocks" SET "location" = $1, "updated_at" = $2 WHERE "blocks"."id" = $3[0m  [["location", 3], ["updated_at", "2017-08-26 17:21:02.236522"], ["id", 1]]
+  [1m[35m (2.0ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.6ms)[0m  [1m[33mUPDATE "blocks" SET "location" = $1, "updated_at" = $2 WHERE "blocks"."id" = $3[0m  [["location", 1], ["updated_at", "2017-08-26 17:21:02.242097"], ["id", 2]]
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (1.7ms)[0m  [1m[33mUPDATE "blocks" SET "location" = $1, "updated_at" = $2 WHERE "blocks"."id" = $3[0m  [["location", 2], ["updated_at", "2017-08-26 17:21:02.245491"], ["id", 3]]
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mList Load (0.5ms)[0m  [1m[34mSELECT  "lists".* FROM "lists" WHERE "lists"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+[active_model_serializers]   [1m[36mBlock Load (1.0ms)[0m  [1m[34mSELECT "blocks".* FROM "blocks" WHERE "blocks"."list_id" = $1 ORDER BY "blocks"."location" ASC[0m  [["list_id", 1]]
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (5.85ms)
+Completed 200 OK in 28ms (Views: 5.5ms | ActiveRecord: 9.7ms)
+
+
+Started GET "/" for ::1 at 2017-08-26 13:21:03 -0400
+Processing by ListsController#show as HTML
+  Rendering lists/show.html.erb within layouts/application
+  Rendered lists/show.html.erb within layouts/application (0.6ms)
+Completed 200 OK in 42ms (Views: 40.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/api/v1/lists/1" for ::1 at 2017-08-26 13:21:03 -0400
+Processing by Api::V1::ListsController#show as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mList Load (0.5ms)[0m  [1m[34mSELECT  "lists".* FROM "lists" WHERE "lists"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+[active_model_serializers]   [1m[36mBlock Load (0.8ms)[0m  [1m[34mSELECT "blocks".* FROM "blocks" WHERE "blocks"."list_id" = $1 ORDER BY "blocks"."location" ASC[0m  [["list_id", 1]]
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (12.01ms)
+Completed 200 OK in 20ms (Views: 12.1ms | ActiveRecord: 1.3ms)
+
+
+Started PATCH "/api/v1/lists/1" for ::1 at 2017-08-26 13:21:05 -0400
+Processing by Api::V1::ListsController#update as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mList Load (0.4ms)[0m  [1m[34mSELECT  "lists".* FROM "lists" WHERE "lists"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mBlock Load (0.7ms)[0m  [1m[34mSELECT "blocks".* FROM "blocks" WHERE "blocks"."list_id" = $1[0m  [["list_id", 1]]
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.8ms)[0m  [1m[33mUPDATE "blocks" SET "location" = $1, "updated_at" = $2 WHERE "blocks"."id" = $3[0m  [["location", 1], ["updated_at", "2017-08-26 17:21:05.830321"], ["id", 1]]
+  [1m[35m (1.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.6ms)[0m  [1m[33mUPDATE "blocks" SET "location" = $1, "updated_at" = $2 WHERE "blocks"."id" = $3[0m  [["location", 2], ["updated_at", "2017-08-26 17:21:05.835766"], ["id", 2]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.7ms)[0m  [1m[33mUPDATE "blocks" SET "location" = $1, "updated_at" = $2 WHERE "blocks"."id" = $3[0m  [["location", 3], ["updated_at", "2017-08-26 17:21:05.840136"], ["id", 3]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mList Load (0.4ms)[0m  [1m[34mSELECT  "lists".* FROM "lists" WHERE "lists"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+[active_model_serializers]   [1m[36mBlock Load (1.1ms)[0m  [1m[34mSELECT "blocks".* FROM "blocks" WHERE "blocks"."list_id" = $1 ORDER BY "blocks"."location" ASC[0m  [["list_id", 1]]
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (7.46ms)
+Completed 200 OK in 32ms (Views: 6.9ms | ActiveRecord: 8.5ms)
+
+
+Started GET "/" for ::1 at 2017-08-26 13:21:06 -0400
+Processing by ListsController#show as HTML
+  Rendering lists/show.html.erb within layouts/application
+  Rendered lists/show.html.erb within layouts/application (0.7ms)
+Completed 200 OK in 52ms (Views: 50.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/api/v1/lists/1" for ::1 at 2017-08-26 13:21:07 -0400
+Processing by Api::V1::ListsController#show as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mList Load (0.6ms)[0m  [1m[34mSELECT  "lists".* FROM "lists" WHERE "lists"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+[active_model_serializers]   [1m[36mBlock Load (1.0ms)[0m  [1m[34mSELECT "blocks".* FROM "blocks" WHERE "blocks"."list_id" = $1 ORDER BY "blocks"."location" ASC[0m  [["list_id", 1]]
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (8.57ms)
+Completed 200 OK in 14ms (Views: 8.2ms | ActiveRecord: 1.6ms)
+
+
