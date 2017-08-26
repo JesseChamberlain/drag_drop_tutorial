@@ -1,7 +1,5 @@
 import React, { Component } from 'react';
-import SortableList from '../containers/SortableList';
 import BlockTile from '../components/BlockTile';
-import {SortableContainer, SortableElement, arrayMove} from 'react-sortable-hoc';
 
 class BlocksIndexContainer extends Component {
   constructor(props) {
@@ -9,7 +7,6 @@ class BlocksIndexContainer extends Component {
     this.state = {
       blocks: []
     }
-    this.onSortEnd = this.onSortEnd.bind(this);
   }
 
   // Sets the state with the blocks within the database
@@ -32,21 +29,22 @@ class BlocksIndexContainer extends Component {
     .catch(error => console.error(`Error in fetch: ${error.message}`))
   }
 
-  onSortEnd({oldIndex, newIndex}) {
-    this.setState({
-      blocks: arrayMove(this.state.blocks, oldIndex, newIndex),
-    });
-  };
-
   render() {
+
+    // Maps all the blocks to component tiles
+    let blocks = this.state.blocks.map(block => {
+      return(
+        <BlockTile
+          key={block.id}
+          block={block}
+        />
+      )
+    })
 
     return(
       <div className="row">
         <div className="medium-8 medium-centered columns">
-          <SortableList
-            blocks={this.state.blocks}
-            onSortEnd={this.onSortEnd}
-          />
+          {blocks}
         </div>
       </div>
     )
