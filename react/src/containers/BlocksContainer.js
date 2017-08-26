@@ -1,17 +1,18 @@
 import React, { Component } from 'react';
 import BlockTile from '../components/BlockTile';
 
-class BlocksIndexContainer extends Component {
+class BlocksContainer extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      list: {},
       blocks: []
     }
   }
 
   // Sets the state with the blocks within the database
   componentDidMount() {
-    fetch(`/api/v1/blocks`)
+    fetch(`/api/v1/lists/1`)
     .then(response => {
       if (response.ok) {
         return response;
@@ -23,7 +24,8 @@ class BlocksIndexContainer extends Component {
     .then((response) => response.json())
     .then((responseData) => {
       this.setState({
-        blocks: responseData
+        list: responseData["list"],
+        blocks: responseData["blocks"]
       })
     })
     .catch(error => console.error(`Error in fetch: ${error.message}`))
@@ -51,4 +53,4 @@ class BlocksIndexContainer extends Component {
   }
 }
 
-export default BlocksIndexContainer;
+export default BlocksContainer;
