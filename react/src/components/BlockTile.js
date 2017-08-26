@@ -1,5 +1,5 @@
 import React from 'react';
-import {SortableContainer, SortableElement, arrayMove} from 'react-sortable-hoc';
+import {SortableElement} from 'react-sortable-hoc';
 
 const BlockTile = SortableElement((props) => {
   let block = props.block
