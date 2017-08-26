@@ -1,11 +1,11 @@
 import React from 'react';
-import BlocksIndexContainer from './containers/BlocksIndexContainer';
+import BlocksContainer from './containers/BlocksContainer';
 
 
 const App = () => {
   return (
       <div>
-        <BlocksIndexContainer />
+        <BlocksContainer />
       </div>
   );
 }
