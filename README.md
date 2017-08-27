@@ -63,9 +63,9 @@ const SortableList = SortableContainer(({blocks}) => {
 
 export default SortableList;
 ```
-Notice that the normal component function is wrapped in the ```SortableContainer()``` function that is imported from ```'react-sortable-hoc'```. This container is responsible for returning the array of BlockTiles.
+Notice that the normal component function is wrapped in the ```SortableContainer()``` function which is imported from ```'react-sortable-hoc'```. This container is responsible for returning the BlockTiles HTML.
 
-Next we'll modify the ```BlockTile.js``` file to incorporate the ```'react-sortable-hoc'``` functions. In the ```BlockTile.js``` file overwrite the code with this new code.  You'll notice that the changes are minor, we're just importing the ```SortableElement()``` function and wrapping the component in it.
+Next we'll modify the ```BlockTile.js``` file to incorporate the ```'react-sortable-hoc'``` functions. In the ```BlockTile.js``` file overwrite the code with this new code.  You'll notice that the changes are minor, we're primarily importing the ```SortableElement()``` function and wrapping the component in it.
 
 ```
 import React from 'react';
@@ -85,4 +85,70 @@ const BlockTile = SortableElement((props) => {
 export default BlockTile;
 ```
 
-The last part of this step is updating the ```BlocksContainer.js``` file. 
+The last part of this step is updating functionality within the ```BlocksContainer.js``` file.
+
+First, at the top of the file, import the SortableList, and the helper function from ```'react-sortable-hoc'```.
+```
+import SortableList from '../containers/SortableList';
+import {arrayMove} from 'react-sortable-hoc';
+```
+Second, lets add in an onSortEnd function, that will be passed down to the ```SortableList.js``` we created, and will use the helper function ```arrayMove()```. Right before the ```render()``` function, add this code.
+```
+onSortEnd({oldIndex, newIndex}) {
+  this.setState({
+    blocks: arrayMove(this.state.blocks, oldIndex, newIndex),
+  });
+};
+```
+Because this will be passed down through props to ```SortableList.js```, we also need to bind it within the constructor. Add the following code after ```this.state```:
+```
+this.onSortEnd = this.onSortEnd.bind(this);
+```
+One small thing to point out in regards to the ```onSortEnd()``` function. It's not entirely clear in the the sortable documentation, but when this is passed to the ```SortableList.js``` it appears to be consumed and used behind the scenes.
+
+Third, in the ```render()``` function, remove the blocks variable and map. Within the ```render(){ return()}``` replace the ```{blocks}``` JSX for the SortableList.
+
+Before:
+```
+render() {
+
+  // Maps all the blocks to component tiles
+  let blocks = this.state.blocks.map(block => {
+    return(
+      <BlockTile
+        key={block.id}
+        block={block}
+      />
+    )
+  })
+
+  return(
+    <div className="row">
+      <div className="medium-8 medium-centered columns">
+        {blocks}
+      </div>
+    </div>
+  )
+}
+```
+After:
+```
+render() {
+
+  return(
+    <div className="row">
+      <div className="medium-8 medium-centered columns">
+        <SortableList
+          blocks={this.state.blocks}
+          onSortEnd={this.onSortEnd}
+        />
+      </div>
+    </div>
+  )
+}
+```
+At this point the front-end drag and drop should be functional!  Fire up the server and browser again and drag everything around.  Since the updating is handled by the state within the BlocksContainer, when you refresh the page, the original order is presented.  The next section will deal with Rails and how to persist this newly sorted list into the database.
+
+### 3.) Nevertheless, Rails persisted
+
+Dragging stuff around is all fun and games, but what if you need that new layout to be saved every time it's changed? For my project in particular, I wanted the layout to be saved automatically each time a block is dropped into place. This freed the user from having to think about saving it, and the rest of the tutorial will follow the steps I chose to do this. You could certainly implement a "save" button somewhere to do the same thing, if it suits your app better, but the critical part is in Rails and the database layout.
