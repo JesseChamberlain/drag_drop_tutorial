@@ -38,7 +38,6 @@ The first part of the implementation is setting up the drag & drop sortability i
 To start off we only have a ```BlockContainer.js``` container and a ```BlockTile.js``` component.
 
 Now we'll add a sortable container that will sit between these two files.  In the ```/react/src/containers``` folder add a file called ```SortableList.js``` and copy in the following code:
-
 ```
 import React from 'react';
 import BlockTile from '../components/BlockTile';
@@ -66,7 +65,6 @@ export default SortableList;
 Notice that the normal component function is wrapped in the ```SortableContainer()``` function which is imported from ```'react-sortable-hoc'```. This container is responsible for returning the BlockTiles HTML.
 
 Next we'll modify the ```BlockTile.js``` file to incorporate the ```'react-sortable-hoc'``` functions. In the ```BlockTile.js``` file overwrite the code with this new code.  You'll notice that the changes are minor, we're primarily importing the ```SortableElement()``` function and wrapping the component in it.
-
 ```
 import React from 'react';
 import {SortableElement} from 'react-sortable-hoc';
@@ -84,7 +82,6 @@ const BlockTile = SortableElement((props) => {
 
 export default BlockTile;
 ```
-
 The last part of this step is updating functionality within the ```BlocksContainer.js``` file.
 
 First, at the top of the file, import the SortableList, and the helper function from ```'react-sortable-hoc'```.
@@ -149,7 +146,7 @@ render() {
 ```
 At this point the front-end drag and drop should be functional!  Fire up the server and browser again and drag everything around.  Since the updating is handled by the state within the BlocksContainer, when you refresh the page, the original order is presented.  The next section will deal with Rails and how to persist this newly sorted list into the database.
 
-### 3.) Nevertheless, Rails persisted
+### 3.) Persisted within Rails
 
 Dragging stuff around is all fun and games, but what if you need that new layout to be saved every time it's changed? For my project in particular, I wanted the layout to be saved automatically each time a block is dropped into place. This freed the user from having to think about saving it, and the rest of the tutorial will follow the steps I chose to do this. You could certainly implement a "save" button somewhere to do the same thing, if it suits your app better, but the critical part is in Rails and the database layout.
 
@@ -196,8 +193,49 @@ onSortEnd({oldIndex, newIndex}) {
   this.updateListBlocks(this.state.blocks)
 }
 ```
-Make sure to bind the ```updateListBlocks()```function in the constructor as well:
+Make sure to bind the ```updateListBlocks()``` function in the constructor as well:
 ```
 this.updateListBlocks = this.updateListBlocks.bind(this);
 ```
-Now that the front end is setup, let's address how the controller will handle remapping the blocks location column within the database.
+Now that the front end is setup, let's address how the controller will handle remapping the blocks location column within the database. Since the Fetch call is a PATCH, we'll be feeding the controller via ```def update```.  Let's take a look at what the final code for that will be and break it down line by line.
+```
+def update
+  resorted_blocks = JSON.parse(request.body.read)
+  blocks = List.find(params[:id]).blocks
+  blocks.each do |block|
+    resorted_blocks["blocks"].each_with_index do |resorted_block, i|
+      if resorted_block["id"] == block.id
+        new_location = (i + 1)
+        unless new_location == block.location
+          block.location = new_location
+          block.save
+        end
+      end
+    end
+  end
+
+  render json: {blocks: blocks}
+end
+```
+In the first two lines we're setting our variables, one for the array of the newly sorted blocks via JSON, and an array of the blocks currently in the database.
+```
+data = JSON.parse(request.body.read)
+blocks = List.find(params[:id]).blocks
+```
+Next we're going to iterate through the blocks with ```.each```, and for each block we're going to iterate through the the resorted_blocks with ```.each_with_index```.
+```
+blocks.each do |block|
+  resorted_blocks["blocks"].each_with_index do |resorted_block, i|
+```
+Once we have a match for the ```id```, we're going to set the location of the block to the (index + 1) of the blocks position in the resorted_blocks array (unless it is the same). Then we'll save that block and iterate to the next.
+```
+if resorted_block["id"] == block.id
+  new_location = (i + 1)
+  unless new_location == block.location
+    block.location = new_location
+    block.save
+  end
+end
+```
+
+At this point you should have a successfully running drag and drop that saves to the database!  Let me know if you discover any shortcuts, bugs, or new ways to solve this.
