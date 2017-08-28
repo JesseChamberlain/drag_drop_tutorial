@@ -15,11 +15,11 @@ class Api::V1::ListsController < ApplicationController
   end
 
   def update
-    data = JSON.parse(request.body.read)
+    resorted_blocks = JSON.parse(request.body.read)
     blocks = List.find(params[:id]).blocks
     blocks.each do |block|
-      data["blocks"].each_with_index do |d, i|
-        if d["id"] == block.id
+      resorted_blocks["blocks"].each_with_index do |resorted_block, i|
+        if resorted_block["id"] == block.id
           new_location = (i + 1)
           unless new_location == block.location
             block.location = new_location
@@ -29,8 +29,6 @@ class Api::V1::ListsController < ApplicationController
       end
     end
 
-    list = List.find(params[:id])
-    blocks = blocks.order(location: :asc)
-    render json: {list: list, blocks: blocks}
+    render json: {blocks: blocks}
   end
 end

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import SortableList from '../containers/SortableList';
 import BlockTile from '../components/BlockTile';
-import {SortableContainer, SortableElement, arrayMove} from 'react-sortable-hoc';
+import {arrayMove} from 'react-sortable-hoc';
 
 class BlocksContainer extends Component {
   constructor(props) {
@@ -61,9 +61,9 @@ class BlocksContainer extends Component {
   onSortEnd({oldIndex, newIndex}) {
     this.setState({
       blocks: arrayMove(this.state.blocks, oldIndex, newIndex),
-    });
+    })
     this.updateListBlocks(this.state.blocks)
-  };
+  }
 
   render() {
 

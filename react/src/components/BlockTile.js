@@ -1,5 +1,5 @@
 import React from 'react';
-import {SortableContainer, SortableElement, arrayMove} from 'react-sortable-hoc';
+import {SortableElement} from 'react-sortable-hoc';
 
 const BlockTile = SortableElement((props) => {
   let block = props.block
@@ -9,7 +9,7 @@ const BlockTile = SortableElement((props) => {
         <p id="block-name">{block.name}</p>
       </div>
     </div>
-  );
+  )
 })
 
 export default BlockTile;

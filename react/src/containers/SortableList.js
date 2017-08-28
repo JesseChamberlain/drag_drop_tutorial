@@ -1,6 +1,6 @@
 import React from 'react';
 import BlockTile from '../components/BlockTile';
-import {SortableContainer, SortableElement, arrayMove} from 'react-sortable-hoc';
+import {SortableContainer} from 'react-sortable-hoc';
 
 const SortableList = SortableContainer(({blocks}) => {
   let sortedBlocks
@@ -16,7 +16,7 @@ const SortableList = SortableContainer(({blocks}) => {
     <div>
       {sortedBlocks}
     </div>
-  );
-});
+  )
+})
 
 export default SortableList;
