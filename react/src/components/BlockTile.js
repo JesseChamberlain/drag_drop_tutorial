@@ -9,7 +9,7 @@ const BlockTile = SortableElement((props) => {
         <p id="block-name">{block.name}</p>
       </div>
     </div>
-  );
+  )
 })
 
 export default BlockTile;

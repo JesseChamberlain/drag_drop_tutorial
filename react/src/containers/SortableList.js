@@ -16,7 +16,7 @@ const SortableList = SortableContainer(({blocks}) => {
     <div>
       {sortedBlocks}
     </div>
-  );
-});
+  )
+})
 
 export default SortableList;

@@ -61,9 +61,9 @@ class BlocksContainer extends Component {
   onSortEnd({oldIndex, newIndex}) {
     this.setState({
       blocks: arrayMove(this.state.blocks, oldIndex, newIndex),
-    });
+    })
     this.updateListBlocks(this.state.blocks)
-  };
+  }
 
   render() {
 

@@ -58,8 +58,8 @@ const SortableList = SortableContainer(({blocks}) => {
     <div>
       {sortedBlocks}
     </div>
-  );
-});
+  )
+})
 
 export default SortableList;
 ```
@@ -79,7 +79,7 @@ const BlockTile = SortableElement((props) => {
         <p id="block-name">{block.name}</p>
       </div>
     </div>
-  );
+  )
 })
 
 export default BlockTile;
@@ -152,3 +152,52 @@ At this point the front-end drag and drop should be functional!  Fire up the ser
 ### 3.) Nevertheless, Rails persisted
 
 Dragging stuff around is all fun and games, but what if you need that new layout to be saved every time it's changed? For my project in particular, I wanted the layout to be saved automatically each time a block is dropped into place. This freed the user from having to think about saving it, and the rest of the tutorial will follow the steps I chose to do this. You could certainly implement a "save" button somewhere to do the same thing, if it suits your app better, but the critical part is in Rails and the database layout.
+
+If you checkout the ```schema.rb``` file, you'll see the block model has a location column (an integer) built into it. For this tutorial the location was hard coded in the seed file. (In the Ldyan app each new block is added to the end of the list and given a location equal to the length of the list + 1.)
+
+Take a look the ```lists_controller.rb``` file in the  ```controllers/api/v1``` folder. In the ```def show``` section of the controller, the blocks are ordered by location before they are sent as a json to the React Container.
+```
+def show
+  list = List.find(params[:id])
+  blocks = list.blocks
+  blocks = blocks.order(location: :asc)
+  render json: {list: list, blocks: blocks}
+end
+```
+Let's first tackle how the ```BlocksContainer.js``` file handles the fetch call to the Rails API. Create a new function that makes a fetch PATCH call:
+```
+updateListBlocks(blocks) {
+  let data = {blocks: blocks};
+  let jsonStringData = JSON.stringify(data);
+  let id = this.state.list.id
+  fetch(`/api/v1/lists/${id}`, {
+    method: 'PATCH',
+    body: jsonStringData
+  })
+  .then(response => {
+    if (response.ok) {
+      return response;
+    } else {
+      let errorMessage = `${response.status} (${response.statusText})`,
+          error = new Error(errorMessage);
+      throw(error);
+    }
+  })
+  .then(response => response.json())
+  .catch(error => console.error(`Error in fetch: ${error.message}`));
+}
+```
+This function takes a single argument. We'll add it into the end of the ```onSortEnd()``` function after the ```setState()```, and then pass it the current state of  ```blocks```.
+```
+onSortEnd({oldIndex, newIndex}) {
+  this.setState({
+    blocks: arrayMove(this.state.blocks, oldIndex, newIndex),
+  })
+  this.updateListBlocks(this.state.blocks)
+}
+```
+Make sure to bind the ```updateListBlocks()```function in the constructor as well:
+```
+this.updateListBlocks = this.updateListBlocks.bind(this);
+```
+Now that the front end is setup, let's address how the controller will handle remapping the blocks location column within the database.

@@ -29,8 +29,6 @@ class Api::V1::ListsController < ApplicationController
       end
     end
 
-    list = List.find(params[:id])
-    blocks = blocks.order(location: :asc)
-    render json: {list: list, blocks: blocks}
+    render json: {blocks: blocks}
   end
 end
