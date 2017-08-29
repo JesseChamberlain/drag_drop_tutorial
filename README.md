@@ -16,12 +16,11 @@ With this tutorial you can clone from the master to see the finished product, or
 
 ### 1.) Setup
 
-Follow this link and clone down the branch.
-
-https://github.com/JesseChamberlain/drag_drop_tutorial/tree/tutorial_template
-
+Clone down the tutorial_template branch in your terminal.
+```
+git clone -b tutorial_template https://github.com/JesseChamberlain/drag_drop_tutorial.git
+```
 In your terminal, within the project directory, run these commands:
-
 ```
 bundle install
 yarn install
