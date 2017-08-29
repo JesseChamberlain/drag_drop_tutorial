@@ -1,4 +1,4 @@
-# README
+# Drag and Drop Tutorial
 
 This tutorial was created to help people incorporate React-Sortable-HOC into their own projects.  The tutorial also covers setting up Rails to automatically persist the newly sorted array within the database.
 
@@ -8,7 +8,7 @@ This tutorial was created to help people incorporate React-Sortable-HOC into the
 - Foundation, 5.4.5
 - React, 15.6.1
 - React-Sortable-HOC, 0.6.7
-https://github.com/clauderic/react-sortable-hoc
+- https://github.com/clauderic/react-sortable-hoc
 
 ## Tutorial
 
@@ -29,16 +29,14 @@ rake db:create
 rake db:migrate
 rake db:seed
 ```
-Open another terminal tab and run ``` rails s ``` in one, and ``` yarn start ``` in another.  Open your browser, preferably Chrome, and navigate to ``` localhost:3000 ```. You should be presented with a verticle list of colored blocks on a black background. Feel free to dig around in the file a bit to see how the app is constructed before continuing.
+Run ``` rails s ```, then open another terminal tab and run ``` yarn start ```. Now open your browser, preferably Chrome, and navigate to ``` localhost:3000 ```. You should be presented with a vertical list of colored blocks on a black background. Feel free to dig around in the file a bit to see how the app is constructed before continuing.
 
 ### 2.) Sortable within React
 
 The first part of the implementation is setting up the drag & drop sortability in React.  The react-sortable-hoc library has already been added to the package.json file and installed, so we just need to implement it into the front-end.  The files we'll be working with for this are in the ```/react/src``` folder.
 
-To start off we only have a ```BlockContainer.js``` container and a ```BlockTile.js``` component.
-
-Now we'll add a sortable container that will sit between these two files.  In the ```/react/src/containers``` folder add a file called ```SortableList.js``` and copy in the following code:
-```
+To start off we only have a ```BlockContainer.js``` container and a ```BlockTile.js``` component. We'll now add a sortable container that will sit between these two files.  In the ```/react/src/containers``` folder add a file called ```SortableList.js``` and copy in the following code:
+```javascript
 import React from 'react';
 import BlockTile from '../components/BlockTile';
 import {SortableContainer} from 'react-sortable-hoc';
@@ -65,7 +63,7 @@ export default SortableList;
 Notice that the normal component function is wrapped in the ```SortableContainer()``` function which is imported from ```'react-sortable-hoc'```. This container is responsible for returning the BlockTiles HTML.
 
 Next we'll modify the ```BlockTile.js``` file to incorporate the ```'react-sortable-hoc'``` functions. In the ```BlockTile.js``` file overwrite the code with this new code.  You'll notice that the changes are minor, we're primarily importing the ```SortableElement()``` function and wrapping the component in it.
-```
+```javascript
 import React from 'react';
 import {SortableElement} from 'react-sortable-hoc';
 
@@ -82,15 +80,13 @@ const BlockTile = SortableElement((props) => {
 
 export default BlockTile;
 ```
-The last part of this step is updating functionality within the ```BlocksContainer.js``` file.
-
-First, at the top of the file, import the SortableList, and the helper function from ```'react-sortable-hoc'```.
-```
+The last part of this step is updating functionality within the ```BlocksContainer.js``` file. First, at the top of the file, import the SortableList, and the helper function from ```'react-sortable-hoc'```.
+```javascript
 import SortableList from '../containers/SortableList';
 import {arrayMove} from 'react-sortable-hoc';
 ```
-Second, lets add in an onSortEnd function, that will be passed down to the ```SortableList.js``` we created, and will use the helper function ```arrayMove()```. Right before the ```render()``` function, add this code.
-```
+Second, lets add in an ```onSortEnd()``` function that will use the helper function ```arrayMove()```, and will be passed down to ```SortableList.js```. Right before the ```render()``` function, add this code:
+```javascript
 onSortEnd({oldIndex, newIndex}) {
   this.setState({
     blocks: arrayMove(this.state.blocks, oldIndex, newIndex),
@@ -98,15 +94,15 @@ onSortEnd({oldIndex, newIndex}) {
 };
 ```
 Because this will be passed down through props to ```SortableList.js```, we also need to bind it within the constructor. Add the following code after ```this.state```:
-```
+```javascript
 this.onSortEnd = this.onSortEnd.bind(this);
 ```
 One small thing to point out in regards to the ```onSortEnd()``` function. It's not entirely clear in the the sortable documentation, but when this is passed to the ```SortableList.js``` it appears to be consumed and used behind the scenes.
 
-Third, in the ```render()``` function, remove the blocks variable and map. Within the ```render(){ return()}``` replace the ```{blocks}``` JSX for the SortableList.
+Third, in the ```render()``` function, remove the blocks variable and map. Within the ```render(){ return()}``` replace the ```{blocks}``` JSX with the SortableList.
 
 Before:
-```
+```javascript
 render() {
 
   // Maps all the blocks to component tiles
@@ -129,7 +125,7 @@ render() {
 }
 ```
 After:
-```
+```javascript
 render() {
 
   return(
@@ -152,8 +148,8 @@ Dragging stuff around is all fun and games, but what if you need that new layout
 
 If you checkout the ```schema.rb``` file, you'll see the block model has a location column (an integer) built into it. For this tutorial the location was hard coded in the seed file. (In the Ldyan app each new block is added to the end of the list and given a location equal to the length of the list + 1.)
 
-Take a look the ```lists_controller.rb``` file in the  ```controllers/api/v1``` folder. In the ```def show``` section of the controller, the blocks are ordered by location before they are sent as a json to the React Container.
-```
+Take a look the ```lists_controller.rb``` file in the  ```controllers/api/v1``` folder. In the ```def show``` method of the controller, the blocks are ordered by location before they are sent as a json to the React Container.
+```ruby
 def show
   list = List.find(params[:id])
   blocks = list.blocks
@@ -162,7 +158,7 @@ def show
 end
 ```
 Let's first tackle how the ```BlocksContainer.js``` file handles the fetch call to the Rails API. Create a new function that makes a fetch PATCH call:
-```
+```javascript
 updateListBlocks(blocks) {
   let data = {blocks: blocks};
   let jsonStringData = JSON.stringify(data);
@@ -185,7 +181,7 @@ updateListBlocks(blocks) {
 }
 ```
 This function takes a single argument. We'll add it into the end of the ```onSortEnd()``` function after the ```setState()```, and then pass it the current state of  ```blocks```.
-```
+```javascript
 onSortEnd({oldIndex, newIndex}) {
   this.setState({
     blocks: arrayMove(this.state.blocks, oldIndex, newIndex),
@@ -194,11 +190,11 @@ onSortEnd({oldIndex, newIndex}) {
 }
 ```
 Make sure to bind the ```updateListBlocks()``` function in the constructor as well:
-```
+```javascript
 this.updateListBlocks = this.updateListBlocks.bind(this);
 ```
-Now that the front end is setup, let's address how the controller will handle remapping the blocks location column within the database. Since the Fetch call is a PATCH, we'll be feeding the controller via ```def update```.  Let's take a look at what the final code for that will be and break it down line by line.
-```
+Now that the front end is setup, let's address how the controller will handle remapping the blocks location column within the database. Since the Fetch call is a PATCH, we'll be feeding the controller via the ```def update``` method.  Let's take a look at what the final code for that will be and break it down line by line.
+```ruby
 def update
   resorted_blocks = JSON.parse(request.body.read)
   blocks = List.find(params[:id]).blocks
@@ -218,17 +214,20 @@ def update
 end
 ```
 In the first two lines we're setting our variables, one for the array of the newly sorted blocks via JSON, and an array of the blocks currently in the database.
-```
+```ruby
 data = JSON.parse(request.body.read)
 blocks = List.find(params[:id]).blocks
 ```
 Next we're going to iterate through the blocks with ```.each```, and for each block we're going to iterate through the the resorted_blocks with ```.each_with_index```.
-```
+```ruby
 blocks.each do |block|
   resorted_blocks["blocks"].each_with_index do |resorted_block, i|
+    ...
+  end
+end  
 ```
 Once we have a match for the ```id```, we're going to set the location of the block to the (index + 1) of the blocks position in the resorted_blocks array (unless it is the same). Then we'll save that block and iterate to the next.
-```
+```ruby
 if resorted_block["id"] == block.id
   new_location = (i + 1)
   unless new_location == block.location
@@ -237,5 +236,8 @@ if resorted_block["id"] == block.id
   end
 end
 ```
-
+You'll also need to add the following code at the top of your controller:
+```ruby
+skip_before_action :verify_authenticity_token
+```
 At this point you should have a successfully running drag and drop that saves to the database!  Let me know if you discover any shortcuts, bugs, or new ways to solve this.
