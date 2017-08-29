@@ -236,5 +236,8 @@ if resorted_block["id"] == block.id
   end
 end
 ```
-
+You'll also need to add the following code at the top of your controller:
+```ruby
+skip_before_action :verify_authenticity_token
+```
 At this point you should have a successfully running drag and drop that saves to the database!  Let me know if you discover any shortcuts, bugs, or new ways to solve this.
